@@ -42,7 +42,7 @@ dt {
 }
 
 .complement{
-    font-size: 200px;
+    font-size: 100px;
 }
 
 /* Displays */
@@ -79,11 +79,11 @@ dt {
 }
 
 .date {
-    font-size: 42px;
+    font-size: 40px;
 }
 
 .time {
-    font-size: 110px;
+    font-size: 65px;
 }
 
 .top-right {
@@ -129,6 +129,7 @@ dt {
     text-align: left;
     margin-left: auto;
     margin-right: auto;
+    font-size: x-small;
 }
 
 ul.calendar {
@@ -265,7 +266,7 @@ ul.calendar {
 }
 
 .animate-grow {
-    max-height: 1280px !important;
+    max-height: 1000px !important;
 }
 
 .animate-grow.ng-hide-add {

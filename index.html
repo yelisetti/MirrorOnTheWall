@@ -29,8 +29,8 @@
   <body ng-controller="MirrorCtrl as commands">
     <div class="top">
       <div class="top-left">
-        <div class="date white">{{date | date : 'EEEE, MMMM d yyyy'}}</div>
-        <div class="time">{{date | date : 'hh:mm a'}}</div>
+          <div class="time">{{date | date : 'hh:mm a'}}</div>
+          <div class="date white">{{date | date : 'EEEE, MMMM d yyyy'}}</div>
       </div>
       <div class="top-right">
         <div class="weather">
@@ -67,7 +67,7 @@
       <div class="bottom-center">
         <!-- Command list -->
         <div class="commands animate-grow" ng-show="focus == 'commands'">
-          <h2>Availalble Commands</h2>
+          <h2>Available Commands</h2>
           <dl>
             <dt>What can I say?</dt>
             <dd>Shows a list of voice commands available to you.</dd>
@@ -80,11 +80,6 @@
               <dt>Show me (a video)(of)(about) [Video name]</dt>
               <dd>An amazing video appears</dd>
           </dl>
-          <small>
-            We are using node <script>document.write(process.versions.node)</script>,
-            Chrome <script>document.write(process.versions.chrome)</script>,
-            and Electron <script>document.write(process.versions.electron)</script>.
-          </small>
         </div>
 
         <div class="interim-result" ng-bind="interimResult"></div>

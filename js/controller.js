@@ -17,7 +17,7 @@
         var DEFAULT_COMMAND_TEXT = 'Say "What can I say?" to see a list of commands...';
         $scope.listening = false;
         $scope.debug = false;
-        $scope.complement = "Hello Vishal!"
+        $scope.complement = "What's cooking, good looking?"
         $scope.focus = "default";
         $scope.user = {};
         $scope.interimResult = DEFAULT_COMMAND_TEXT;
@@ -86,6 +86,9 @@
                 console.log(AnnyangService.commands);
                 setFocus("commands");
             });
+
+            // Go back to default view
+            AnnyangService.addCommand('Go Home', defaultView);
 
             // Hide everything and "sleep"
             AnnyangService.addCommand('Go to Sleep', function() {
