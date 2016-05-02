@@ -1,8 +1,6 @@
 # Smart Mirror
 
-[
-
-This project was inspired by [HomeMirror](https://github.com/HannahMitt/HomeMirror) and Michael Teeuw's [Magic Mirror](http://michaelteeuw.nl/tagged/magicmirror). It uses [annyang](https://github.com/TalAter/annyang) for voice interactivity, [electron](http://electron.atom.io/) to make it cross platform, and integrates with Philips Hue. It is my own take on what a "smart mirror" can be.
+This project was inspired by Michael Teeuw's [Magic Mirror](http://michaelteeuw.nl/tagged/magicmirror).
 
 ### Getting Started
 #### Hardware Components
@@ -11,7 +9,6 @@ This project was inspired by [HomeMirror](https://github.com/HannahMitt/HomeMirr
 - Monitor (with the bezel removed)
 - Mirror Pane (aka Observation Glass)
 - Philips Hue
-
 
 #### Installation
 In order to get started I suggest a clean install of Raspbian. You can snag a fresh copy of Jessie (recommended, it's the future) or Wheezy from the [Raspbian Download Page](https://www.raspberrypi.org/downloads/raspbian/).
