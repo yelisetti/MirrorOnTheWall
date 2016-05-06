@@ -14,7 +14,7 @@
             $interval) {
                 
         var _this = this;
-        var DEFAULT_COMMAND_TEXT = 'Say "What can I say?" to see a list of commands...';
+        var DEFAULT_COMMAND_TEXT = 'Say "help"...';
         $scope.listening = false;
         $scope.debug = false;
         $scope.complement = "What's cooking, good looking?"
@@ -81,7 +81,7 @@
             }
 
             // List commands
-            AnnyangService.addCommand('What can I say', function() {
+            AnnyangService.addCommand('help', function() {
                 console.debug("Here is a list of commands...");
                 console.log(AnnyangService.commands);
                 setFocus("commands");
@@ -97,7 +97,9 @@
             });
 
             // Go back to default view
-            AnnyangService.addCommand('Wake up', defaultView);
+            AnnyangService.addCommand('Wake up', function() {
+                defaultView()
+            });
 
             // Hide everything and "sleep"
             AnnyangService.addCommand('Show debug information', function() {
@@ -120,24 +122,15 @@
 
             // Zoom in map
             AnnyangService.addCommand('(map) zoom in', function() {
-                console.debug("Zoooooooom!!!");
                 $scope.map = MapService.zoomIn();
             });
 
             AnnyangService.addCommand('(map) zoom out', function() {
-                console.debug("Moooooooooz!!!");
                 $scope.map = MapService.zoomOut();
             });
 
             AnnyangService.addCommand('(map) zoom (to) *value', function(value) {
-                console.debug("Moooop!!!", value);
                 $scope.map = MapService.zoomTo(value);
-            });
-
-            AnnyangService.addCommand('(map) reset zoom', function() {
-                console.debug("Zoooommmmmzzz00000!!!");
-                $scope.map = MapService.reset();
-                setFocus("map");
             });
             
             //Search for a video
@@ -151,8 +144,8 @@
 
             // Change name
             AnnyangService.addCommand('My (name is)(name\'s) *name', function(name) {
-                console.debug("Hi", name, "nice to meet you");
-                $scope.user.name = name;
+                //console.debug("Hi", name, "nice to meet you");
+                $scope.complement="Hello,"+ name + ", say 'help' to get started...";
             });
 
 
