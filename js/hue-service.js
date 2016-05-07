@@ -11,7 +11,7 @@
                 console.log(data);
             })*/
 
-            $http.put(HUE_BASE + 'groups/2/action', {
+            $http.put(HUE_BASE + 'groups/1/action', {
                 "on": true,
                 "hue": 4000,
                 "sat": 0,

@@ -132,14 +132,26 @@
             AnnyangService.addCommand('(map) zoom (to) *value', function(value) {
                 $scope.map = MapService.zoomTo(value);
             });
-            
+
             //Search for a video
             AnnyangService.addCommand('show me (a video)(of)(about) *query', function(query){
                 SearchService.searchYouTube(query).then(function(results){
                     //Set cc_load_policy=1 to force captions
                     $scope.video = 'http://www.youtube.com/embed/'+results.data.items[0].id.videoId+'?autoplay=1&controls=0&iv_load_policy=3&enablejsapi=1&showinfo=0';
-                    setFocus("video");
+                    $scope.focus = "video";
                 });
+            });
+
+            //Stop video
+            AnnyangService.addCommand('Stop the video', function() {
+                var iframe = document.getElementsByTagName("iframe")[0].contentWindow;
+                iframe.postMessage('{"event":"command","func":"' + 'stopVideo' +   '","args":""}', '*');
+                $scope.focus = "default";
+            });
+
+            // Turn lights off -- Still need to test
+            AnnyangService.addCommand('Turn the light off', function(state, action) {
+                HueService.performUpdate(state + " " + action);
             });
 
             // Change name
@@ -147,7 +159,6 @@
                 //console.debug("Hi", name, "nice to meet you");
                 $scope.complement="Hello,"+ name + ", say 'help' to get started...";
             });
-
 
             // Fallback for all commands
             AnnyangService.addCommand('*allSpeech', function(allSpeech) {
