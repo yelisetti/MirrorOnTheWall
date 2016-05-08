@@ -91,14 +91,29 @@
             AnnyangService.addCommand('Go Home', defaultView);
 
             // Hide everything and "sleep"
-            AnnyangService.addCommand('Go to Sleep', function() {
+            AnnyangService.addCommand('Go to Sleep', function($http) {
                 console.debug("Ok, going to sleep...");
                 setFocus("sleep");
+
+                $http({
+                    url: 'http://things.ubidots.com/api/v1.6/variables/572ec449762542669c750f77/values/?token=NrYUMnW0Ug4xF5eiyHs5tVucuZWAtY',
+                    method: 'POST',
+                    data: {"value": 0},
+                    headers: {"Content-Type": 'application/json'}
+                });
             });
 
             // Go back to default view
-            AnnyangService.addCommand('Wake up', function() {
-                defaultView()
+            AnnyangService.addCommand('Wake up', function($http) {
+                defaultView();
+                $scope.complement = 'Hello Vishal, lets get started!';
+
+                $http({
+                    url: 'http://things.ubidots.com/api/v1.6/variables/572ec449762542669c750f77/values/?token=NrYUMnW0Ug4xF5eiyHs5tVucuZWAtY',
+                    method: 'POST',
+                    data: {"value": 1},
+                    headers: {"Content-Type": 'application/json'}
+                });
             });
 
             // Hide everything and "sleep"
