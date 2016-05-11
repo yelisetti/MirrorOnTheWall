@@ -95,24 +95,30 @@
                 console.debug("Ok, going to sleep...");
                 setFocus("sleep");
 
+                //window.alert("hello");
                 $http({
                     url: 'http://things.ubidots.com/api/v1.6/variables/572ec449762542669c750f77/values/?token=NrYUMnW0Ug4xF5eiyHs5tVucuZWAtY',
                     method: 'POST',
-                    data: {"value": 0},
-                    headers: {"Content-Type": 'application/json'}
-                });
+                    data: {value: "0"}
+                }).success(function (data, status, headers) {
+                    //window.alert("hello");
+                    console.log("hello!");
+                })
             });
+
+            //$http.post('http://things.ubidots.com/api/v1.6/variables/572ec449762542669c750f77/1' +
+            //'/?token=NrYUMnW0Ug4xF5eiyHs5tVucuZWAtY', "value:0");
 
             // Go back to default view
             AnnyangService.addCommand('Wake up', function($http) {
                 defaultView();
                 $scope.complement = 'Hello Vishal, lets get started!';
 
+                //window.alert("hello");
                 $http({
                     url: 'http://things.ubidots.com/api/v1.6/variables/572ec449762542669c750f77/values/?token=NrYUMnW0Ug4xF5eiyHs5tVucuZWAtY',
                     method: 'POST',
-                    data: {"value": 1},
-                    headers: {"Content-Type": 'application/json'}
+                    data: {value: "1"}
                 });
             });
 
@@ -158,7 +164,7 @@
             });
 
             //Stop video
-            AnnyangService.addCommand('Stop the video', function() {
+            AnnyangService.addCommand('stop the video', function() {
                 var iframe = document.getElementsByTagName("iframe")[0].contentWindow;
                 iframe.postMessage('{"event":"command","func":"' + 'stopVideo' +   '","args":""}', '*');
                 $scope.focus = "default";
