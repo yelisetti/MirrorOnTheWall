@@ -24,14 +24,16 @@ cd ~
 git clone https://github.com/yelisetti/MirrorOnTheWall.git
 ```
 
-##### Configuring the mirror
-You'll need to fill in two things into `js/config.js`:
-
-
 ##### Configuring the Pi
 In order to rotate your monitor you'll need to add the following line to `/boot/config.txt`
 ```
 display_rotate=1
+```
+
+#### Install Chromium Speech Keys
+In order to talk into the mick, you will need Chromium speech keys which can be found here:
+```
+http://www.chromium.org/developers/how-tos/api-keys
 ```
 
 ##### Install dependencies and run
