@@ -11,7 +11,7 @@
                 console.log(data);
             })*/
 
-            $http.put(HUE_BASE + 'groups/1/action', {
+            $http.put(HUE_BASE + 'groups/2/action', {
                 "on": true,
                 "hue": 4000,
                 "sat": 0,
@@ -31,7 +31,7 @@
             //Parse the update string and see what actions we need to perform
             console.log(update);
 
-            $http.put(HUE_BASE + 'groups/1/action', update)
+            $http.put(HUE_BASE + 'groups/2/action', update)
             .success(function (data, status, headers) {
                 console.log(data);
             })
@@ -47,10 +47,10 @@
 
             for(var i = 0; i <= spokenWords.length; i++){
                 console.log("Checking word:", spokenWords[i]);
-                
+
                 //Set a default saturation
                 update["sat"] = 254;
-                
+
                 //Check for color updates
                 if(spokenWords[i] == 'red' || spokenWords[i] == 'reed' || spokenWords[i] == 'read'){
                     update["hue"] = 65535;
@@ -91,10 +91,10 @@
                 }
 
             }
-            
+
             return update;
         }
-        
+
         return service;
     }
 
