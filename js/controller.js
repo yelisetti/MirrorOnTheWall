@@ -9,7 +9,8 @@
             HueService,
             CalendarService,
             SearchService,
-            $scope, 
+            $scope,
+            $http,
             $timeout, 
             $interval) {
                 
@@ -91,7 +92,7 @@
             AnnyangService.addCommand('Go Home', defaultView);
 
             // Hide everything and "sleep"
-            AnnyangService.addCommand('Go to Sleep', function($http) {
+            AnnyangService.addCommand('Go to Sleep', function() {
                 console.debug("Ok, going to sleep...");
                 setFocus("sleep");
 
@@ -100,17 +101,12 @@
                     url: 'http://things.ubidots.com/api/v1.6/variables/572ec449762542669c750f77/values/?token=NrYUMnW0Ug4xF5eiyHs5tVucuZWAtY',
                     method: 'POST',
                     data: {value: "0"}
-                }).success(function (data, status, headers) {
-                    //window.alert("hello");
-                    console.log("hello!");
-                })
+                });
+
             });
 
-            //$http.post('http://things.ubidots.com/api/v1.6/variables/572ec449762542669c750f77/1' +
-            //'/?token=NrYUMnW0Ug4xF5eiyHs5tVucuZWAtY', "value:0");
-
             // Go back to default view
-            AnnyangService.addCommand('Wake up', function($http) {
+            AnnyangService.addCommand('Wake up', function() {
                 defaultView();
                 $scope.complement = 'Hello Vishal, lets get started!';
 
@@ -122,7 +118,7 @@
                 });
             });
 
-            // Hide everything and "sleep"
+            // Hide everything and "show debug information"
             AnnyangService.addCommand('Show debug information', function() {
                 console.debug("Boop Boop. Showing debug info...");
                 $scope.debug = true;
